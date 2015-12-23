@@ -8,7 +8,6 @@
 
 manufacturer="Apple"
 shortModel="$(sysctl hw.model | cut -c 11-1000)"
-#fullModel="$(curl http://support-sp.apple.com/sp/product?cc=`system_profiler SPHardwareDataType | awk '/Serial/ {print $4}' | cut -c 9-`)"
 serialNum="$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')"
 gpuType="$(system_profiler SPDisplaysDataType | grep Chipset | cut -c 22-1000)"
 
@@ -194,4 +193,4 @@ echo "--------------------------------------" >> "$crNum.Mac.triage.txt"
 echo "Date: $date" >> "$crNum.Mac.triage.txt"
 echo "--------------------------------------" >> "$crNum.Mac.triage.txt"
 sleep 2
-sudo diskutil unmount force /Volumes/NASmnt
+diskutil unmount force /Volumes/NASmnt
